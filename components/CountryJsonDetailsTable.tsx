@@ -1,10 +1,10 @@
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
 import React from "react";
-import {CountryData} from "@/stores/CountryStore";
+import {CountryDetails} from "@/types/CountryDetails";
 
 type CountryDetailsTableProps = {
-    countryData: CountryData
-}
+    countryData: CountryDetails
+} & React.HTMLAttributes<HTMLTableElement>;
 
 const CountryJsonDetailsTable = ({countryData}: CountryDetailsTableProps) => {
     return (

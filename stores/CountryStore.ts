@@ -1,12 +1,9 @@
 import {makeAutoObservable} from "mobx";
 import {createContext, useContext} from "react";
-
-export interface CountryData {
-    [key: string]: any;
-}
+import {CountryDetails} from "@/types/CountryDetails";
 
 export class CountryStore {
-    countryData?: CountryData;
+    countryDetails?: CountryDetails;
 
     constructor() {
         makeAutoObservable(this)
@@ -16,7 +13,7 @@ export class CountryStore {
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/name/${countryName}`);
             const data = await response.json();
-            this.countryData = data[0];
+            this.countryDetails = data[0]
         } catch (error) {
             console.error(error);
         }

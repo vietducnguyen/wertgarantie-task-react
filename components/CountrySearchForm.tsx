@@ -9,6 +9,7 @@ import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import CountryJsonDetailsTable from "@/components/CountryJsonDetailsTable";
 import {useCountryStore} from "@/stores/CountryStore";
+import CountryDetailsTable from "@/components/CountryDetailsTable";
 
 
 const FormSchema = z.object({
@@ -49,8 +50,11 @@ const CountrySearchForm = observer(() => {
                     <Button type="submit">Submit</Button>
                 </form>
             </Form>
-            {store.countryData && (
-                <CountryJsonDetailsTable countryData={store.countryData}/>
+            {store.countryDetails && (
+                <CountryDetailsTable details={store.countryDetails} className="mb-10"/>
+            )}
+            {store.countryDetails && (
+                <CountryJsonDetailsTable countryData={store.countryDetails}/>
             )}
         </div>
     );
